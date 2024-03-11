@@ -87,12 +87,21 @@
                 <span class="text-gray-700"> Departamento: </span>
                 <select class="form-select block w-full mt-1">
                   <option>TODOS</option>
++                 <option>Amazonas</option> 
++                 <option>Áncash</option> 
++                 <option>Apurímac</option>
++                 <option>Arequipa</option>     
++                 <option>Ayacucho</option> 
++                 <option>Cajamarca</option>
                 </select>
               </label>
               <label class="block mt-2">
                 <span class="text-gray-700"> Provincia: </span>
                 <select class="form-select block w-full mt-1">
                   <option>TODOS</option>
+                  <option>Carabayllo</option>
+                  <option>San Martin</option>
+                  <option>La Victoria</option>
                 </select>
               </label>
               <label class="block mt-2">
@@ -105,6 +114,9 @@
                 <span class="text-gray-700"> Municipalidad: </span>
                 <select class="form-select block w-full mt-1">
                   <option>TODOS</option>
+                  <option>Carabayllo</option>
+                  <option>San Martin</option>
+                  <option>La Victoria</option>
                 </select>
               </label>
             </div>
@@ -156,7 +168,6 @@
       }).addTo(map);
 
       var puntosDepartamentos = [
-
         { nombre: "Huánuco", coordenadas: [-9.9306, -76.2421] },
         { nombre: "Ica", coordenadas: [-14.2351, -75.5745] },
         { nombre: "Junín", coordenadas: [-11.1448, -74.8134] },
@@ -173,11 +184,9 @@
         { nombre: "Tacna", coordenadas: [-18.0119, -70.2536] },
         // { nombre: "Tumbes", coordenadas: [-3.5669, -80.4511] },
         { nombre: "Ucayali", coordenadas: [-8.3791, -74.5539] },
-
       ];
 
-
-      var puntosDepartamentos2= [
+      var puntosDepartamentos2 = [
         { nombre: "Amazonas", coordenadas: [-6.2366, -77.8561] },
         { nombre: "Áncash", coordenadas: [-9.4078, -77.6049] },
         { nombre: "Apurímac", coordenadas: [-14.0453, -72.7397] },
@@ -188,16 +197,23 @@
         { nombre: "Cusco", coordenadas: [-13.5319, -71.9675] },
         { nombre: "Huancavelica", coordenadas: [-12.7916, -74.9755] },
         { nombre: "Huánuco", coordenadas: [-9.9306, -76.2421] },
-
-
       ];
 
-      puntosDepartamentos2.forEach(function (departamento) {
-        L.marker(departamento.coordenadas)
-          .addTo(map)
-          .bindPopup(departamento.nombre);
-      });
+      // puntosDepartamentos2.forEach(function (departamento) {
+      //   L.marker(departamento.coordenadas)
+      //     .addTo(map)
+      //     .bindPopup("Municipalidad Barrera");
+      // });
 
+      puntosDepartamentos2.forEach(function (departamento) {
+        L.marker(departamento.coordenadas).addTo(map).bindPopup(`
+      <b>${departamento.nombre}<b/>
+      <p>ACREDITADA</p>
+      <a target="_blank" href="./acreditado.pdf">
+        Documentos
+      </a>
+    `);
+      });
       var iconoVerde = L.icon({
         iconUrl:
           // "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png",
@@ -208,9 +224,15 @@
       });
 
       puntosDepartamentos.forEach(function (departamento) {
-        L.marker(departamento.coordenadas, { icon: iconoVerde })
-          .addTo(map)
-          .bindPopup(departamento.nombre);
+        L.marker(departamento.coordenadas, { icon: iconoVerde }).addTo(
+          map
+        ).bindPopup(`
+      <b>${departamento.nombre}<b/>
+      <p>NO ACREDITADA</p>
+      <a target="_blank" href="./acreditado.pdf">
+        Documentos
+      </a>
+    `);
       });
     </script>
   </body>
