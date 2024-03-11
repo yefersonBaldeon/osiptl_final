@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>OSIPTEL - SIN BARRERAS jkhjhlkjhlk</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Agrega la hoja de estilos de Leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+      #map {
+        width: 100%;
+        height: 800px; /* Ajusta la altura del mapa según tus necesidades */
+      }
+      .button {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 8px 16px;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <div class="bg-blue-800 p-4">
+      <div class="flex justify-between items-center">
+        <img
+          alt="OSIPTEL logo placeholder"
+          class="h-12"
+          height="50"
+          src="osiptel.png"
+          width="100"
+        />
+        <div class="text-white">
+          <a class="px-4 py-2 inline-block" href="#">Loginnn</a>
+          <a class="px-4 py-2 inline-block" href="#">Reportes</a>
+          <a class="px-4 py-2 inline-block" href="#">Manual de Usuario</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var puntosDepartamentos1 = [
+        { nombre: "Huánuco", coordenadas: [-9.9306, -76.2421] },
+        { nombre: "Ica", coordenadas: [-14.2351, -75.5745] },
+        { nombre: "Junín", coordenadas: [-11.1448, -74.8134] },
+        { nombre: "La Libertad", coordenadas: [-7.9619, -78.553] },
+        { nombre: "Lambayeque", coordenadas: [-6.4333, -79.8467] },
+        { nombre: "Lima", coordenadas: [-12.0464, -77.0428] },
+        { nombre: "Loreto", coordenadas: [-3.7491, -73.2538] },
+        { nombre: "Madre de Dios", coordenadas: [-11.7665, -70.8119] },
+      ];
+
+      var puntosDepartamentos2 = [
+        { nombre: "Amazonas", coordenadas: [-6.2366, -77.8561] },
+        { nombre: "Áncash", coordenadas: [-9.4078, -77.6049] },
+        { nombre: "Apurímac", coordenadas: [-14.0453, -72.7397] },
+        { nombre: "Arequipa", coordenadas: [-16.409, -71.5375] },
+        { nombre: "Ayacucho", coordenadas: [-13.1587, -74.223] },
+      ];
+
+      var puntosDepartamentos3 = [
+        { nombre: "Cajamarca", coordenadas: [-7.1775, -78.5108] },
+        { nombre: "Callao", coordenadas: [-12.0561, -77.1182] },
+        { nombre: "Cusco", coordenadas: [-13.5319, -71.9675] },
+        { nombre: "Huancavelica", coordenadas: [-12.7916, -74.9755] },
+        { nombre: "Huánuco", coordenadas: [-9.9306, -76.2421] },
+      ];
+
+      var puntosDepartamentos4 = [
+        { nombre: "Moquegua", coordenadas: [-17.1939, -70.9332] },
+        { nombre: "Pasco", coordenadas: [-10.6966, -76.6451] },
+        { nombre: "Puno", coordenadas: [-15.8402, -70.0219] },
+        { nombre: "San Martín", coordenadas: [-7.0364, -76.6762] },
+        { nombre: "Tacna", coordenadas: [-18.0119, -70.2536] },
+        { nombre: "Ucayali", coordenadas: [-8.3791, -74.5539] },
+      ];
+    </script>
+
+    <div class="container mx-auto mt-4 p-4 bg-white shadow-lg">
+      <h1 class="text-xl font-bold mb-4">
+        Mapa de ductos para el despliegue de Fibra Óptica
+      </h1>
+      <div class="grid grid-cols-4 gap-4">
+        <div class="col-span-1 bg-blue-100 p-4">
+          <div class="mb-4">
+            <a
+              class="button bg-blue-500 text-white font-semibold rounded"
+              href="./"
+              >Reportes</a
+            >
+          </div>
+          <div class="mb-4">
+            <a
+              class="button bg-blue-500 text-white font-semibold rounded"
+              href="./two.html"
+            >
+              Mapa de ductos
+            </a>
+          </div>
+          <div class="mb-4">
+            <a
+              target="_blank"
+              class="button bg-blue-500 text-white font-semibold rounded"
+              href=""
+            >
+              Índice de favorabilidad
+            </a>
+          </div>
+          <div class="mb-4">
+            <div class="flex items-center bg-white p-2 rounded">
+              <i class="fas fa-search text-gray-400 mr-2"> </i>
+              <input
+                class="bg-transparent focus:outline-none w-full"
+                placeholder="Selecciona la ubicación"
+                type="text"
+              />
+            </div>
+            <div class="mt-2">
+              <label class="block">
+                <span class="text-gray-700"> Departamento: </span>
+                <select class="form-select block w-full mt-1">
+                  <option>TODOS</option>
+                  +
+                  <option>Amazonas</option>
+                  +
+                  <option>Áncash</option>
+                  +
+                  <option>Apurímac</option>
+                  +
+                  <option>Arequipa</option>
+                  +
+                  <option>Ayacucho</option>
+                  +
+                  <option>Cajamarca</option>
+                </select>
+              </label>
+              <label class="block mt-2">
+                <span class="text-gray-700"> Provincia: </span>
+                <select class="form-select block w-full mt-1">
+                  <option>TODOS</option>
+                  <option>Carabayllo</option>
+                  <option>San Martin</option>
+                  <option>La Victoria</option>
+                </select>
+              </label>
+              <label class="block mt-2">
+                <span class="text-gray-700"> Distrito: </span>
+                <select class="form-select block w-full mt-1">
+                  <option>TODOS</option>
+                </select>
+              </label>
+              <label class="block mt-2">
+                <span class="text-gray-700"> Municipalidad: </span>
+                <select class="form-select block w-full mt-1">
+                  <option>TODOS</option>
+                  <option>Carabayllo</option>
+                  <option>San Martin</option>
+                  <option>La Victoria</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <div class="mb-4">
+            <h2 class="text-lg font-semibold">Leyenda</h2>
+
+            <!-- -------------------------------- PART 1-------------------------- -->
+
+            <div class="flex items-center mt-2">
+              <input type="checkbox" id="myCheckbox" class="" />
+              <span class="h-4 w-4 bg-blue-500 rounded-full mr-2"></span>
+              <span class="text-sm"> DUCTOS DE ELECTRICIDAD</span>
+            </div>
+
+            <script>
+              const checkbox = document.getElementById("myCheckbox");
+
+              checkbox.addEventListener("change", function () {
+                var figura1 = L.icon({
+                  iconUrl:
+                    // "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png",
+                    "./blanco.",
+                  iconSize: [25, 40], // Tamaño del icono
+                  iconAnchor: [22, 94], // Punto de anclaje del icono
+                  popupAnchor: [-3, -76], // Posición del popup respecto al icono
+                });
+
+                if (this.checked) {
+                  puntosDepartamentos1.forEach(function (departamento) {
+                    L.marker(departamento.coordenadas, { icon: figura1 }).addTo(
+                      map
+                    ).bindPopup(`
+                    <b>${departamento.nombre}<b/>
+                    <p>ACREDITADA</p>
+                   <a target="_blank" href="./acreditado.pdf">
+                  Documentos
+                  </a>
+    `);
+                  });
+                } else {
+                }
+              });
+            </script>
+            <!-- ---------------------------------PART 2-------------------------- -->
+
+            <div class="flex items-center mt-2">
+              <input type="checkbox" id="myCheckbox2" class="" />
+              <span class="h-4 w-4 bg-red-500 rounded-full mr-2"></span>
+              <span class="text-sm"> ESTACIONES DE CONTROL</span>
+            </div>
+
+            <script>
+              const checkbox2 = document.getElementById("myCheckbox2");
+
+              checkbox2.addEventListener("change", function () {
+                var figura2 = L.icon({
+                  iconUrl:
+                    // "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png",
+                    "./rojo.png",
+                  iconSize: [25, 40], // Tamaño del icono
+                  iconAnchor: [22, 94], // Punto de anclaje del icono
+                  popupAnchor: [-3, -76], // Posición del popup respecto al icono
+                });
+
+                if (this.checked) {
+                  puntosDepartamentos2.forEach(function (departamento) {
+                    L.marker(departamento.coordenadas, { icon: figura2 }).addTo(
+                      map
+                    ).bindPopup(`
+                    <b>${departamento.nombre}<b/>
+                    <p>ACREDITADA</p>
+                   <a target="_blank" href="./acreditado.pdf">
+                  Documentos
+                  </a>
+    `);
+                  });
+                } else {
+                }
+              });
+            </script>
+
+            <!-- --------------------------------PART3--------------------------- -->
+
+            <div class="flex items-center mt-2">
+              <input type="checkbox" id="myCheckbox3" class="" />
+              <span class="h-4 w-4 bg-yellow-500 rounded-full mr-2"></span>
+              <span class="text-sm"> ESTACIONES DE CONTROL</span>
+            </div>
+
+            <script>
+              const checkbox3 = document.getElementById("myCheckbox3");
+
+              checkbox3.addEventListener("change", function () {
+                var figura3 = L.icon({
+                  iconUrl:
+                    // "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png",
+                    "./yellow.png",
+                  iconSize: [25, 40], // Tamaño del icono
+                  iconAnchor: [22, 94], // Punto de anclaje del icono
+                  popupAnchor: [-3, -76], // Posición del popup respecto al icono
+                });
+
+                if (this.checked) {
+                  puntosDepartamentos3.forEach(function (departamento) {
+                    L.marker(departamento.coordenadas, { icon: figura3 })
+                      .addTo(map)
+                      .bindPopup();
+                  });
+                } else {
+                }
+              });
+            </script>
+
+            <!-- ----------------------------------PART 4------------------------- -->
+
+            <div class="flex items-center mt-2">
+              <input type="checkbox" id="myCheckbox4" class="" />
+              <span class="h-4 w-4 bg-green-500 rounded-full mr-2"></span>
+              <span class="text-sm"> ESTACIONES DE CONTROL</span>
+            </div>
+
+            <script>
+              const checkbox4 = document.getElementById("myCheckbox4");
+
+              checkbox4.addEventListener("change", function () {
+                var figura4 = L.icon({
+                  iconUrl:
+                    "./green.png",
+                  iconSize: [25, 40], // Tamaño del icono
+                  iconAnchor: [22, 94], // Punto de anclaje del icono
+                  popupAnchor: [-3, -76], // Posición del popup respecto al icono
+                });
+
+                if (this.checked) {
+                  puntosDepartamentos4.forEach(function (departamento) {
+                    L.marker(departamento.coordenadas, { icon: figura4 }).addTo(
+                      map
+                    ).bindPopup(`
+                    <b>${departamento.nombre}<b/>
+                    <p>ACREDITADA</p>
+                   <a target="_blank" href="./acreditado.pdf">
+                  Documentos
+                  </a>
+    `);
+                  });
+                } else {
+                }
+              });
+            </script>
+          </div>
+        </div>
+        <div class="col-span-3">
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-blue-900 text-white p-4 text-sm">
+      <div class="flex justify-between items-center">
+        <span
+          >OSIPTEL - Organismo Supervisor de la Inversion Privada en
+          Telecomunicaciones</span
+        >
+        <div>
+          <a class="px-2" href="#"><i class="fab fa-facebook-f"></i></a>
+          <a class="px-2" href="#"><i class="fab fa-twitter"></i></a>
+          <a class="px-2" href="#"><i class="fab fa-instagram"></i></a>
+          <a class="px-2" href="#"><i class="fab fa-youtube"></i></a>
+          <a class="px-2" href="#"><i class="fas fa-rss"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Agrega los scripts de Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+      // Inicializa el mapa con las coordenadas y el nivel de zoom deseados
+      var map = L.map("map").setView([-9.19, -75.0152], 6);
+
+      // Agrega el mapa base de OpenStreetMap
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+      // var iconoVerde = L.icon({
+      //   iconUrl:
+      //     // "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png",
+      //     "./cuadra.png",
+      //   iconSize: [25, 40], // Tamaño del icono
+      //   iconAnchor: [22, 94], // Punto de anclaje del icono
+      //   popupAnchor: [-3, -76], // Posición del popup respecto al icono
+      // });
+
+      //   puntosDepartamentos1.forEach(function (departamento) {
+      //     L.marker(departamento.coordenadas, { icon: iconoVerde }).addTo(
+      //       map
+      //     ).bindPopup(`
+      //   <b>${departamento.nombre}<b/>
+      //   <p>NO ACREDITADA</p>
+      //   <a target="_blank" href="./acreditado.pdf">
+      //     Documentos
+      //   </a>
+      // `);
+      //   });
+    </script>
+  </body>
+</html>
