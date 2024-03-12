@@ -203,12 +203,7 @@
                     L.marker(departamento.coordenadas, { icon: figura1 }).addTo(
                       map
                     ).bindPopup(`
-                    <b>${departamento.nombre}<b/>
-                    <p>ACREDITADA</p>
-                   <a target="_blank" href="./acreditado.pdf">
-                  Documentos
-                  </a>
-    `);
+                    <b>${departamento.nombre}<b/>`);;
                   });
                 } else {
                 }
@@ -240,12 +235,7 @@
                     L.marker(departamento.coordenadas, { icon: figura2 }).addTo(
                       map
                     ).bindPopup(`
-                    <b>${departamento.nombre}<b/>
-                    <p>ACREDITADA</p>
-                   <a target="_blank" href="./acreditado.pdf">
-                  Documentos
-                  </a>
-    `);
+                    <b>${departamento.nombre}<b/>`);
                   });
                 } else {
                 }
@@ -275,9 +265,10 @@
 
                 if (this.checked) {
                   puntosDepartamentos3.forEach(function (departamento) {
-                    L.marker(departamento.coordenadas, { icon: figura3 })
-                      .addTo(map)
-                      .bindPopup();
+                    L.marker(departamento.coordenadas, { icon: figura3 }).addTo(
+                      map
+                    ).bindPopup(`
+                    <b>${departamento.nombre}<b/>`);
                   });
                 } else {
                 }
@@ -297,8 +288,7 @@
 
               checkbox4.addEventListener("change", function () {
                 var figura4 = L.icon({
-                  iconUrl:
-                    "./green.png",
+                  iconUrl: "./green.png",
                   iconSize: [25, 40], // Tamaño del icono
                   iconAnchor: [22, 94], // Punto de anclaje del icono
                   popupAnchor: [-3, -76], // Posición del popup respecto al icono
@@ -309,12 +299,7 @@
                     L.marker(departamento.coordenadas, { icon: figura4 }).addTo(
                       map
                     ).bindPopup(`
-                    <b>${departamento.nombre}<b/>
-                    <p>ACREDITADA</p>
-                   <a target="_blank" href="./acreditado.pdf">
-                  Documentos
-                  </a>
-    `);
+                    <b>${departamento.nombre}<b/>`);
                   });
                 } else {
                 }
