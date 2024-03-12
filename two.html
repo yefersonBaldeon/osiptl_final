@@ -45,7 +45,7 @@
           width="100"
         />
         <div class="text-white">
-          <a class="px-4 py-2 inline-block" href="#">Loginnn</a>
+          <a class="px-4 py-2 inline-block" href="#">Login</a>
           <a class="px-4 py-2 inline-block" href="#">Reportes</a>
           <a class="px-4 py-2 inline-block" href="#">Manual de Usuario</a>
         </div>
@@ -91,22 +91,22 @@
     </script>
 
     <div class="container mx-auto mt-4 p-4 bg-white shadow-lg">
-      <h1 class="text-xl font-bold mb-4">
+      <h1 class="text-xl font-bold mb-4 text-center">
         Mapa de ductos para el despliegue de Fibra Óptica
       </h1>
       <div class="grid grid-cols-4 gap-4">
         <div class="col-span-1 bg-blue-100 p-4">
           <div class="mb-4">
             <a
-              class="button bg-blue-500 text-white font-semibold rounded"
+              class="button bg-blue-500 text-white font-semibold rounded hover:bg-green-500"
               href="./"
               >Reportes</a
             >
           </div>
           <div class="mb-4">
             <a
-              class="button bg-blue-500 text-white font-semibold rounded"
-              href="./three.html"
+              class="button bg-blue-500 text-white font-semibold rounded hover:bg-green-500"
+              href="./"
             >
               Mapa de ductos
             </a>
@@ -114,8 +114,8 @@
           <div class="mb-4">
             <a
               target="_blank"
-              class="button bg-blue-500 text-white font-semibold rounded"
-              href=""
+              class="button bg-blue-500 text-white font-semibold rounded hover:bg-green-500"
+              href="./three.html"
             >
               Índice de favorabilidad
             </a>
@@ -163,15 +163,6 @@
                   <option>TODOS</option>
                 </select>
               </label>
-              <label class="block mt-2">
-                <span class="text-gray-700"> Municipalidad: </span>
-                <select class="form-select block w-full mt-1">
-                  <option>TODOS</option>
-                  <option>Carabayllo</option>
-                  <option>San Martin</option>
-                  <option>La Victoria</option>
-                </select>
-              </label>
             </div>
           </div>
           <div class="mb-4">
@@ -203,7 +194,7 @@
                     L.marker(departamento.coordenadas, { icon: figura1 }).addTo(
                       map
                     ).bindPopup(`
-                    <b>${departamento.nombre}<b/>`);;
+                    <b>${departamento.nombre}<b/>`);
                   });
                 } else {
                 }
@@ -247,7 +238,7 @@
             <div class="flex items-center mt-2">
               <input type="checkbox" id="myCheckbox3" class="" />
               <span class="h-4 w-4 bg-yellow-500 rounded-full mr-2"></span>
-              <span class="text-sm"> ESTACIONES DE CONTROL</span>
+              <span class="text-sm"> DUCTOS DE GAS</span>
             </div>
 
             <script>
@@ -280,7 +271,7 @@
             <div class="flex items-center mt-2">
               <input type="checkbox" id="myCheckbox4" class="" />
               <span class="h-4 w-4 bg-green-500 rounded-full mr-2"></span>
-              <span class="text-sm"> ESTACIONES DE CONTROL</span>
+              <span class="text-sm"> DUCTOS DE AGUA</span>
             </div>
 
             <script>
