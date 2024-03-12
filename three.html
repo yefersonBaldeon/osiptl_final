@@ -1,18 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>OSIPTEL - Despliegue de Infraestructura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+    </style>
   </head>
-  <body>
-    <iframe
-      title="internet fijo 2"
-      width="1024"
-      height="612"
-      src="https://app.powerbi.com/view?r=eyJrIjoiMDUzM2QwMGUtOTEwMi00YzhmLThmOTMtNTVhZWY3NDk4OTFkIiwidCI6IjU3YzE3Y2FmLWM1MDAtNGZmYy05OTc2LWY4NWZjNmM2NmQ0NyIsImMiOjR9"
-      frameborder="0"
-      allowfullscreen="true"
-    ></iframe>
+  <body class="bg-blue-900 text-white">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <div class="flex items-center">
+          <img
+            alt="OSIPTEL logo"
+            class="mr-4"
+            src="osiptel.png"
+          />
+          <span class="text-xl font-bold">
+            DESPLIEGUE
+            <br />
+            DE INFRAESTRUCTURA
+          </span>
+        </div>
+        <div class="relative">
+          <input
+            class="pl-4 pr-10 py-2 rounded bg-white text-gray-700"
+            placeholder="Palabra clave o tema de interés"
+            type="text"
+          />
+          <button class="absolute right-0 top-0 mr-2 mt-2 text-blue-900">
+            <i class="fas fa-search"> </i>
+          </button>
+        </div>
+      </div>
+      <div class="bg-blue-800 p-4 rounded-lg shadow-md">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="flex items-center">
+            <img
+              alt="Person using a smartphone with connectivity icons"
+              class="rounded-lg shadow-lg"
+              height="120"
+              src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-sSsOulEoQY3dXtF2RiaK66Ja/user-XZ7Av8ZH1bvGvI0GdH7WwbAs/img-7qpQUDWl5BWxnNrYxtjeOTo0.png?st=2024-03-12T01%3A55%3A47Z&amp;se=2024-03-12T03%3A55%3A47Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-03-11T16%3A32%3A20Z&amp;ske=2024-03-12T16%3A32%3A20Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=RRGAiVCAGlPSCtP99F7gpO/0cIi0MfJfq2dvoWERRj0%3D"
+              width="200"
+            />
+          </div>
+          <div>
+            <div class="bg-blue-700 p-2 rounded-lg shadow-lg mb-4">
+              <p class="text-sm">
+                Índice de favorabilidad al despliegue de infraestructura de
+                telecomunicaciones en los municipios del país.
+              </p>
+            </div>
+            <div class="bg-green-600 p-2 rounded-lg shadow-lg">
+              <p class="text-sm font-bold">
+                Herramienta digital que te permitirá conocer la favorabilidad de
+                despliegue de fibra óptica en cada municipio, evaluando las
+                barreras burocráticas, impulsando así la equidad en la expansión
+                de la infraestructura de telecomunicaciones en el país.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-between items-center py-4 text-sm">
+        <a class="text-blue-300 hover:text-blue-100" href="#"> Inicio </a>
+        <a class="text-blue-300 hover:text-blue-100" href="#">
+          Transparencia y acceso a la información pública
+        </a>
+        <a class="text-blue-300 hover:text-blue-100" href="#">
+          Atención y servicio a la ciudadanía
+        </a>
+        <a class="text-blue-300 hover:text-blue-100" href="#"> Participa </a>
+        <a class="text-blue-300 hover:text-blue-100" href="#"> OSIPTEL </a>
+        <a class="text-blue-300 hover:text-blue-100" href="#">
+          Presentaciones
+        </a>
+        <a class="text-blue-300 hover:text-blue-100" href="#"> Estudios </a>
+        <a class="text-blue-300 hover:text-blue-100" href="#"> Noticias </a>
+      </div>
+      <div class="bg-blue-800 p-4 rounded-lg shadow-md mb-4">
+        <p class="text-sm">
+          El Organismo Supervisor de Inversión Privada en Telecomunicaciones
+          (Osiptel) diseñó un índice para visualizar la favorabilidad al
+          despliegue de infraestructura de telecomunicaciones en cada municipio
+          del país, de manera que se pueda tener un panorama general de en
+          cuáles municipios del Perú es más fácil desplegar infraestructura y
+          así mismo sirva como punto de partida para que las entidades
+          territoriales puedan enfocar sus esfuerzos en apoyar la mejora de
+          condiciones para permitir ampliación y mejora de cobertura de
+          servicios.
+        </p>
+      </div>
+      <div class="bg-blue-800 p-4 rounded-lg shadow-md">
+        <p class="text-sm">
+          El tablero que se visualiza a continuación corresponde a la
+          favorabilidad al despliegue de infraestructura de telecomunicaciones
+          en los municipios del país.
+        </p>
+        <p class="text-sm mt-2">
+          Pueden consultar el estado de su ciudad, haciendo clic sobre el
+          nombre.
+        </p>
+      </div>
+      <div
+        class="bg-blue-800 p-4 rounded-lg shadow-md flex justify-content-center align-items-center"
+      >
+        <iframe
+          title="osiptell"
+          width="1024"
+          height="1060"
+          src="https://app.powerbi.com/view?r=eyJrIjoiNDIyMTIyNGItNWViYi00ODgwLWIxZjUtYzEzOTQ2ZDY3ZTQyIiwidCI6IjU3YzE3Y2FmLWM1MDAtNGZmYy05OTc2LWY4NWZjNmM2NmQ0NyIsImMiOjR9"
+          frameborder="0"
+          allowfullscreen="true"
+        ></iframe>
+      </div>
+    </div>
   </body>
 </html>
